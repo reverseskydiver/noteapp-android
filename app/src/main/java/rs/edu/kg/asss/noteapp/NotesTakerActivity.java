@@ -53,7 +53,6 @@ public class NotesTakerActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
         imageView_save.setOnClickListener(v -> {
             String title = editText_title.getText().toString();
             String description = editText_notes.getText().toString();

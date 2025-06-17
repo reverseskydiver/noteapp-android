@@ -21,7 +21,7 @@ public class Notes implements Serializable {
     @ColumnInfo(name = "date")
     private String date = "";
 
-    @ColumnInfo(name = "pineed")
+    @ColumnInfo(name = "pinned")
     private boolean pinned = false;
 
     public Notes(){

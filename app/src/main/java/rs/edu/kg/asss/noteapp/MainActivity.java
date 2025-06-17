@@ -34,25 +34,8 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     List<Notes> notes = new ArrayList<>();
     RoomDB database;
     FloatingActionButton fab_add;
-
     SearchView searchView_home;
     Notes selectedNote;
-    private final NotesClickListener notesClickListener = new NotesClickListener() {
-        @Override
-        public void onClick(Notes notes) {
-            Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
-            intent.putExtra("old_note", notes);
-            startActivityForResult(intent, 102);
-        }
-
-        @Override
-        public void onLongClick(Notes notes, CardView cardView) {
-            selectedNote = new Notes();
-            selectedNote = notes;
-
-            showPopup(cardView);
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +75,23 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
             }
         });
     }
+    private final NotesClickListener notesClickListener = new NotesClickListener() {
+        @Override
+        public void onClick(Notes notes) {
+            Intent intent = new Intent(MainActivity.this, NotesTakerActivity.class);
+            intent.putExtra("old_note", notes);
+            startActivityForResult(intent, 102);
+        }
+
+        @Override
+        public void onLongClick(Notes notes, CardView cardView) {
+            selectedNote = new Notes();
+            selectedNote = notes;
+
+            showPopup(cardView);
+        }
+    };
+
 
     private void filter(String newText) {
         String lowerCase = newText.toLowerCase();
