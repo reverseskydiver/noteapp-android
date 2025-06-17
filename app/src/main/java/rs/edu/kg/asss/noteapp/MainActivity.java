@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     public boolean onMenuItemClick(MenuItem item) {
         if (R.id.pin == item.getItemId()) {
             database.mainDao().pin(selectedNote.getNoteId(), !selectedNote.isPinned());
-            Toast.makeText(MainActivity.this, String.format("Note %s is %s", selectedNote.getTitle(), selectedNote.isPinned() ? "Pinned" : "Unpinned"), Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, String.format("Note %s is %s", selectedNote.getTitle(), !selectedNote.isPinned() ? "Pinned" : "Unpinned"), Toast.LENGTH_SHORT).show();
             notes.clear();
             notes.addAll(database.mainDao().getAllNotes());
             notesListAdapter.notifyDataSetChanged();
